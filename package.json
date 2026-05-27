@@ -3,6 +3,16 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "supportedArchitectures": {
+    "os": [
+      "current",
+      "linux"
+    ],
+    "cpu": [
+      "current",
+      "x64"
+    ]
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build && cp dist/index.html dist/404.html",
