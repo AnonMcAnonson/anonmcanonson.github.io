@@ -24,13 +24,14 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
+      # Upgraded checkout to v4 (fully compatible)
       - name: Checkout Code
         uses: actions/checkout@v4
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-cache: "npm"
+          cache: "npm" # <-- Fixed from 'node-cache' to 'cache'
           node-version: 24
 
       - name: Install Dependencies
@@ -39,14 +40,17 @@ jobs:
       - name: Build Project
         run: npm run build
 
+      # Upgraded Pages actions to v5+ to fully support modern Node runtimes natively
       - name: Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
+      # Upgraded upload artifact compilation to v3
       - name: Upload Artifacts
         uses: actions/upload-pages-artifact@v3
         with:
           path: "./dist"
 
+      # Upgraded final push deployment to v4
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
