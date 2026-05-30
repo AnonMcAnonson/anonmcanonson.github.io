@@ -10,7 +10,7 @@
 @font-face {
     font-family: "Inter";
     src:
-        url("../fontsInter-Italic-VariableFont_slnt,wght.woff2")
+        url("../fonts/Inter-Italic-VariableFont_slnt,wght.woff2")
             format("woff2-supports-variations"),
         url("../fonts/Inter-Italic-VariableFont_slnt,wght.woff2")
             format("woff2");
